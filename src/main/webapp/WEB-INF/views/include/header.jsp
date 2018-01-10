@@ -7,8 +7,14 @@
 		
 	</div>
 	<div class="links">
-		<a href="">로그인</a>
-		<a href="">등록</a>
+		<c:if test="${empty sessionScope.loginUser}">
+			<a href="<c:url value="/account/login"/>">로그인</a>
+			<a href="<c:url value="/account/register"/>">등 록</a>
+		</c:if>
+		<c:if test="${!empty sessionScope.loginUser}">
+			${sessionScope.loginUser}님 환영합니다.
+			<a href="<c:url value="/account/logout"/>">로그아웃</a>
+		</c:if>
 	</div>
 </div>
 <div id="menu">
