@@ -61,9 +61,9 @@ public class AccountController {
 	}	
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String register(Map<String, Object>model, MemberForm form) {
-		System.out.println("#1");
-		System.out.println(form);
+	public String register(Map<String, Object>model, MemberForm form) throws Exception {
+//		System.out.println("#1");
+//		System.out.println(form);
 		Member member = new Member();
 		member.setMemberid(form.getMemberid());
 		member.setPasswd(form.getPasswd());
@@ -71,8 +71,8 @@ public class AccountController {
 		member.setUsertype("user");
 		member.setActive("1");
 		
-		System.out.println("#2");
-		System.out.println(member);
+//		System.out.println("#2");
+//		System.out.println(member);
 		
 		memberService.insertMember(member);
 			
