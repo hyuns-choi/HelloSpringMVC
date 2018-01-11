@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +19,15 @@ import com.oraclejava.mvc.service.MemberService;
 public class AccountController {
 	
 	@Autowired
+	@Qualifier("memberServiceImpl")
 	private MemberService	memberService;
 
+	
+//	@Autowired
+//	@Qualifier("memberServiceImpl2")
+//	private MemberService	memberService2;
+	
+	
 	// .../account/login
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(Map<String, Object>model) {
@@ -31,6 +39,23 @@ public class AccountController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(Map<String, Object>model, HttpSession session, MemberForm form) {
 		
+		String id = form.getMemberid();
+		String pwd = form.getPasswd();
+		
+		Member member = memberService.selectMemberByIdAndPassword(id, pwd);
+		if(member != null) {
+			//session.setAttribute("loginUser", form.getMemberid());
+			session.setAttribute("loginUser", member);
+			
+			return "redirect:/";
+		}
+		else {
+			model.put("fail", "login fail");
+			
+			return "login";
+		}
+		
+		/*
 		if(form.getMemberid().equals("oraclejava") && form.getPasswd().equals("1")) {
 			
 			session.setAttribute("loginUser", form.getMemberid());
@@ -43,6 +68,7 @@ public class AccountController {
 			
 			return "login";
 		}
+		*/
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)

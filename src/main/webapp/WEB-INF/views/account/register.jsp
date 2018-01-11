@@ -12,8 +12,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원등록</title>
-<link rel="stylesheet" href="<c:url value="/resources/styles/default.css"/>" />
-<link rel="stylesheet" href="<c:url value="/resources/styles/input.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/style/default.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/style/input.css"/>" />
 </head>
 <body>
 	<div id="pageContainer">

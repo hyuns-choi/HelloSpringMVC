@@ -12,8 +12,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<link rel="stylesheet" href="<c:url value="/resources/styles/default.css"/>" />
-<link rel="stylesheet" href="<c:url value="/resources/styles/input.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/style/default.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/style/input.css"/>" />
 </head>
 <body>
 	<div id="pageContainer">
