@@ -33,6 +33,7 @@ public class BbsServiceImpl implements BbsServices {
 		bbs.setReadcount(0);
 		
 		bbsMapper.insertBbs(bbs);
+		// bbsno 채워옴
 		
 		BbsFile bbsFile = null;
 		for(FileItem file : bbsForm.getFileItems()) {
